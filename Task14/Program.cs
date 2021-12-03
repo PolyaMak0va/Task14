@@ -20,10 +20,42 @@ namespace Task14
     {
         static void Main(string[] args)
         {
-            Animal[] animals = { new Cat("cat"), new Dog("dog") };
+            Animal[] animals = { new Cat("a cat"), new Dog("a dog") };
             foreach (var animal in animals)
             {
                 animal.ShowInfo();
+            }
+            Cat cat = new Cat("a cat");
+            Animal animal2 = cat;
+            Dog dog = new Dog("a dog");
+            Animal animal3 = dog;
+            Console.WriteLine("Выберите животное: cat или dog");
+            string choice = Convert.ToString(Console.ReadLine());
+            switch (choice)
+            {
+                case "cat":
+                    {
+                        if (animal2 is Cat)
+                        {
+                            Cat cat2 = (Cat)animal2;
+                            cat.Say();
+                        }
+                        break;
+                    }
+                case "dog":
+                    {
+                        if (animal3 is Dog)
+                        {
+                            Dog dog2 = (Dog)animal3;
+                            dog.Say();
+                        }
+                        break;
+                    }    
+                default:
+                    {
+                        Console.WriteLine("Введено некорректное значение");
+                        break;
+                    }
             }
             Console.ReadKey();
         }
